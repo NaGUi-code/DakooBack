@@ -1,5 +1,5 @@
 .env.local
-.DS_Store
+.DS_Storecode
 
 **/__pycache__/
 # Byte-compiled / optimized / DLL files
@@ -172,4 +172,4 @@ cython_debug/
 #.idea/
 
 # PyPI configuration file
-.pypirc
+.pypirc.DS_Store
