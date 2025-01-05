@@ -22,8 +22,7 @@ load_dotenv(dotenv_path=".env.local")
 
 URL_WIN_WHEEL = os.getenv("URL_WIN_WHEEL")
 URL_REDDEM_PROMO = os.getenv("URL_REDDEM_PROMO")
-USERNAME = os.getenv("USERNAME")
-PASSWORD = os.getenv("PASSWORD")
+TOKEN = os.getenv("TOKEN")
 
 with open("eatsushi.json", "r") as f:
     eatSushiShops = json.load(f)
@@ -37,11 +36,6 @@ class RequestWinWheel(BaseModel):
     wheelCtaType: str = "google"
     marketing: bool = False
     discountType: str = "fixed_cart"
-
-
-class RequestsLogin(BaseModel):
-    username: str
-    password: str
 
 
 @app.get("/")
@@ -96,11 +90,3 @@ async def win_wheel(requestsWinWheel: RequestWinWheel):
         return {"message": "Error", "data": r.text, "error": True}, 500
 
     return {"message": "Wheel data", "data": r.json(), "error": None}, 200
-
-
-@app.post("/login")
-async def login(requestsLogin: RequestsLogin):
-    if requestsLogin.username != USERNAME or requestsLogin.password != PASSWORD:
-        return {"message": "Invalid credentials", "data": None, "error": True}, 403
-
-    return {"message": "Login success", "data": None, "error": None}, 200

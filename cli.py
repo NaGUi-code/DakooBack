@@ -5,7 +5,6 @@ import sys
 
 DOKAA_BASE_URL = "https://dokaa-api-sgk5mmvb3a-ew.a.run.app"
 
-
 class bcolors:
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
