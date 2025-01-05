@@ -46,7 +46,7 @@ class RequestsLogin(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"greeting": "Hello world"}
+    return {"status": "ok"}
 
 
 @app.get("/list/shops")
